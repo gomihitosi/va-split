@@ -5,6 +5,9 @@
 
 ---
 
+## ダウンロード
+[va-split.zip](https://github.com/gomihitosi/va-split/releases/download/release/va-split.zip)
+
 ## 使い方
 * ffmpeg.exe を用意
 * va-split.exe を起動
