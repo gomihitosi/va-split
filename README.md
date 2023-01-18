@@ -18,7 +18,9 @@
 
 ## ffmpeg.exe について
 * 下記 URL の Assets にある ffmpeg-master-latest-win64-gpl.zip をダウンロードして解凍してください。
-解凍されたフォルダの bin フォルダ内に ffmpeg.exe があります。
+
+  解凍されたフォルダの bin フォルダ内に ffmpeg.exe があります。
+
 https://github.com/BtbN/FFmpeg-Builds/releases
 
 ## クレジット
