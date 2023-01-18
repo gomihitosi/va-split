@@ -1,0 +1,354 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:53103",
+    "distDir": "../dist"
+  },
+  "package": {
+    "productName": "va-split",
+    "version": "1.0.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "fs": {
+        "readFile": true,
+        "writeFile": true,
+        "exists": true,
+        "scope": [
+          "**"
+        ]
+      },
+      "path": {
+        "all": true
+      },
+      "window": {
+        "minimize": true,
+        "show": true,
+        "close": true,
+        "setAlwaysOnTop": true,
+        "setSize": true,
+        "startDragging": true
+      },
+      "dialog": {
+        "all": true
+      },
+      "shell": {
+        "execute": true,
+        "scope": [
+          {
+            "name": "ffmpeg-i",
+            "cmd": "cmd",
+            "args": [
+              "/C",
+              {
+                "validator": "\\S+"
+              },
+              "-i",
+              {
+                "validator": "\\S+"
+              },
+              "-hide_banner"
+            ]
+          },
+          {
+            "name": "ffmpeg-copy-video",
+            "cmd": "cmd",
+            "args": [
+              "/C",
+              {
+                "validator": "\\S+"
+              },
+              "-i",
+              {
+                "validator": "\\S+"
+              },
+              "-hide_banner",
+              "-an",
+              "-c:v",
+              "copy",
+              {
+                "validator": "\\S+"
+              },
+              "-n"
+            ]
+          },
+          {
+            "name": "ffmpeg-transfer-wav",
+            "cmd": "cmd",
+            "args": [
+              "/C",
+              {
+                "validator": "\\S+"
+              },
+              "-i",
+              {
+                "validator": "\\S+"
+              },
+              "-hide_banner",
+              "-map",
+              {
+                "validator": "\\S+"
+              },
+              "-vn",
+              "-ar",
+              {
+                "validator": "\\S+"
+              },
+              "-c:a",
+              {
+                "validator": "\\S+"
+              },
+              {
+                "validator": "\\S+"
+              },
+              "-n"
+            ]
+          },
+          {
+            "name": "ffmpeg-transfer-mp3-abr-cbr",
+            "cmd": "cmd",
+            "args": [
+              "/C",
+              {
+                "validator": "\\S+"
+              },
+              "-i",
+              {
+                "validator": "\\S+"
+              },
+              "-hide_banner",
+              "-map",
+              {
+                "validator": "\\S+"
+              },
+              "-vn",
+              "-ar",
+              {
+                "validator": "\\S+"
+              },
+              "-c:a",
+              "libmp3lame",
+              "-b:a",
+              {
+                "validator": "\\S+"
+              },
+              "-abr",
+              {
+                "validator": "\\S"
+              },
+              {
+                "validator": "\\S+"
+              },
+              "-n"
+            ]
+          },
+          {
+            "name": "ffmpeg-transfer-mp3-vbr",
+            "cmd": "cmd",
+            "args": [
+              "/C",
+              {
+                "validator": "\\S+"
+              },
+              "-i",
+              {
+                "validator": "\\S+"
+              },
+              "-hide_banner",
+              "-map",
+              {
+                "validator": "\\S+"
+              },
+              "-vn",
+              "-ar",
+              {
+                "validator": "\\S+"
+              },
+              "-c:a",
+              "libmp3lame",
+              "-q:a",
+              {
+                "validator": "\\S"
+              },
+              {
+                "validator": "\\S+"
+              },
+              "-n"
+            ]
+          },
+          {
+            "name": "ffmpeg-transfer-ogg-cbr",
+            "cmd": "cmd",
+            "args": [
+              "/C",
+              {
+                "validator": "\\S+"
+              },
+              "-i",
+              {
+                "validator": "\\S+"
+              },
+              "-hide_banner",
+              "-map",
+              {
+                "validator": "\\S+"
+              },
+              "-vn",
+              "-ar",
+              {
+                "validator": "\\S+"
+              },
+              "-c:a",
+              "libvorbis",
+              "-b:a",
+              {
+                "validator": "\\S"
+              },
+              "-minrate",
+              {
+                "validator": "\\S"
+              },
+              "-maxrate",
+              {
+                "validator": "\\S"
+              },
+              {
+                "validator": "\\S+"
+              },
+              "-n"
+            ]
+          },
+          {
+            "name": "ffmpeg-transfer-ogg-abr-vbr",
+            "cmd": "cmd",
+            "args": [
+              "/C",
+              {
+                "validator": "\\S+"
+              },
+              "-i",
+              {
+                "validator": "\\S+"
+              },
+              "-hide_banner",
+              "-map",
+              {
+                "validator": "\\S+"
+              },
+              "-vn",
+              "-ar",
+              {
+                "validator": "\\S+"
+              },
+              "-c:a",
+              "libvorbis",
+              {
+                "validator": "\\S"
+              },
+              {
+                "validator": "\\S"
+              },
+              {
+                "validator": "\\S+"
+              },
+              "-n"
+            ]
+          },
+          {
+            "name": "ffmpeg-transfer-aac-cbr-vbr",
+            "cmd": "cmd",
+            "args": [
+              "/C",
+              {
+                "validator": "\\S+"
+              },
+              "-i",
+              {
+                "validator": "\\S+"
+              },
+              "-hide_banner",
+              "-map",
+              {
+                "validator": "\\S+"
+              },
+              "-vn",
+              "-ar",
+              {
+                "validator": "\\S+"
+              },
+              "-c:a",
+              "aac",
+              "-aac_coder",
+              "twoloop",
+              {
+                "validator": "\\S"
+              },
+              {
+                "validator": "\\S"
+              },
+              {
+                "validator": "\\S+"
+              },
+              "-n"
+            ]
+          }
+        ]
+      }
+    },
+    "bundle": {
+      "active": true,
+      "category": "DeveloperTool",
+      "copyright": "",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [],
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "va-split",
+      "longDescription": "",
+      "macOS": {
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "resources": [
+        "end.wav"
+      ],
+      "shortDescription": "",
+      "targets": "all",
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "label": "main",
+        "title": "va-split",
+        "fullscreen": false,
+        "resizable": false,
+        "height": 280,
+        "width": 280,
+        "visible": false,
+        "decorations": false,
+        "transparent": true
+      }
+    ]
+  }
+}

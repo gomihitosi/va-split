@@ -1,0 +1,56 @@
+va-split ver 1.0.0
+
+■ 概要
+動画ファイルを動画と音声に分割したり、音声ファイルを変換したりするソフトウェアです。
+
+■ 使い方
+0. ffmpeg.exe を用意
+1. va-split.exe を起動
+  => 起動出来なかった場合は install.msi を実行してインストール、起動
+2. va-split に ffmpeg.exe をドラッグアンドドロップ
+3. va-split に動画ファイルをドラッグアンドドロップ
+  => 分割された無音の動画、トラック数分の音声ファイルが作成されます
+
+■ Q&A
+Q. PC以外でも使えますか？
+A. 使えません。WindowsPC のみ対象としています。Windows10 でのみ動作確認を行っています。
+
+Q. ffmpeg.exe はどこでダウンロードするんですか？
+A. 下記 URL の Assets にある ffmpeg-master-latest-win64-gpl.zip をダウンロードして解凍してください。
+   解凍されたフォルダの bin フォルダ内に ffmpeg.exe があります。
+   https://github.com/BtbN/FFmpeg-Builds/releases
+
+Q. ffmpeg.exe は何で必要なんですか？
+A. ffmpeg.exe は動画や音声を再生したり変換したりするフリーソフトウェアです。
+   va-split は ffmpeg.exe の機能を呼び出すソフトなので、必ず ffmpeg.exe が必要になります。
+
+Q. 何でインストールが必要な場合があるんですか？
+A. va-split では WebView という機能で作られていますが、一部の WindowsPC にはインストールされてないことがある為です。
+   install.msi を使ってインストールすると、va-split と一緒に WebView をインストールしてくれるらしいです（未検証）。
+   上記で駄目な場合はお手数ですが連絡して頂ければ対応するかもしれません。
+
+Q. 同じファイルを変換した場合、2回目以降はファイルが出力されてない？
+A. 出力時に同名ファイルが存在する場合は上書きせずに処理を終了しています。
+   1回目に出力したファイルを削除するか、ファイル名を変更して再度変換してください。
+
+Q. 完了音を消したい、完了音を変えたい
+A. end.wav を削除。または、同名ファイルで上書きしてください。
+
+Q. 色を変えたい
+A. settings.json の styleTheme にある各カラーコードを変更してください。
+   カラーコードは16進数、rgb、rbgaでの指定が可能です。
+
+例: 白色の場合 #fff, #ffffff, rgb(255,255,255), rgba(255,255,255,1)
+
+Q. settings.json を変更したらおかしくなった
+A. settings.json を削除した後に va-split を再起動すれば、設定が初期化されます。
+
+■ クレジット
+OtoLogic様: https://otologic.jp
+  end.wav (オノマトペ アクセント41)
+
+■ 連絡先
+Twitter: https://twitter.com/gomihitomi
+
+■ 履歴
+2023/01/18 1.0.0 完成
